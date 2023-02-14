@@ -1,3 +1,6 @@
+import 'dart:html';
+
+import 'package:bloc_starter/pages/other.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,11 +12,26 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Counter myCounter = BlocProvider.of<Counter>(context);
+    // Counter myCounter = BlocProvider.of<Counter>(context);
+    Counter myCounter = context.read<Counter>();
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Depedency Injection'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed("/other");
+          // Navigator.of(context).push(
+          //   MaterialPageRoute(
+          //     builder: (context) => BlocProvider.value(
+          //       value: myCounter,
+          //       child: const OtherPage(),
+          //     ),
+          //   ),
+          // );
+        },
+        child: const Icon(Icons.arrow_forward),
       ),
       body: Center(
         child: Row(

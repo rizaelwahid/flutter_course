@@ -1,22 +1,23 @@
+import 'package:bloc_starter/pages/other.dart';
+import 'package:bloc_starter/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc_starter/bloc/counter.dart';
 import 'package:bloc_starter/pages/home.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final router = MyRouter();
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => Counter(),
-      child: MaterialApp(
-        home: HomePage(),
-      ),
+    return MaterialApp(
+      onGenerateRoute: router.onRizaWays,
     );
   }
 }

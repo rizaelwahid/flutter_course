@@ -9,7 +9,8 @@ class DataWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Counter myCounter = BlocProvider.of<Counter>(context);
+    // Counter myCounter = BlocProvider.of<Counter>(context);
+    Counter myCounter = context.read<Counter>();
     return BlocBuilder(
       bloc: myCounter,
       builder: (context, state) => Text(
