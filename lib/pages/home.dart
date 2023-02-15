@@ -12,7 +12,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // Counter myCounter = BlocProvider.of<Counter>(context);
     CounterBloc myCounter = context.read<CounterBloc>();
-    ThemeBloc myTheme = context.read<ThemeBloc>();
 
     return Scaffold(
       appBar: AppBar(
@@ -78,6 +77,24 @@ class HomePage extends StatelessWidget {
               builder: (context, state) {
                 return Text("$state");
               },
+            ),
+            Material(
+              color: Colors.cyan,
+              child: InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed("/blocSlector");
+                },
+                child: const SizedBox(
+                  height: 100,
+                  width: 100,
+                  child: Center(
+                    child: Text(
+                      "Bloc Selector",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
             ),
           ],
         ),
