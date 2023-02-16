@@ -21,7 +21,7 @@ class MyRouter {
               BlocProvider.value(value: myCounter),
               BlocProvider.value(value: myTheme),
             ],
-            child: const HomePage(),
+            child: HomePage(),
           ),
         );
       case "/other":
